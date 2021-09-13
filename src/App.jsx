@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import { BrowserRouter, Switch } from "react-router-dom";
 import { store } from "./redux/store";
 import history from "./router/history";
-import MainLayout from "./page/layout/MainLayout";
+import MainLayout from "./component/MainLayout";
 
 function App() {
   return (
