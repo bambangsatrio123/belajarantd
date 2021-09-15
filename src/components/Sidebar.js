@@ -1,10 +1,12 @@
 import { Layout, Menu } from "antd";
-import { DesktopOutlined, PieChartOutlined, FileOutlined, MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
+import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import pageRoutes from "./pageRoutes";
 
 const { Header, Content, Footer, Sider } = Layout;
 
-export default function Dashboard() {
+export default function Sidebar() {
   const getCollapseIcon = () => {
     if (collapsed) {
       return <MenuUnfoldOutlined onClick={handleOnCollapse} className="trigger" />;
@@ -22,16 +24,14 @@ export default function Dashboard() {
     <Layout style={{ minHeight: "100vh" }}>
       <Sider trigger={null} collapsed={collapsed} handleOnCollapse={handleOnCollapse}>
         <div className="logo" />
-        <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
-          <Menu.Item key="1" icon={<PieChartOutlined />}>
-            Option 1
-          </Menu.Item>
-          <Menu.Item key="2" icon={<DesktopOutlined />}>
-            Option 2
-          </Menu.Item>
-          <Menu.Item key="9" icon={<FileOutlined />}>
-            Files
-          </Menu.Item>
+        <Menu theme="dark" defaultSelectedKeys={["0"]} mode="inline">
+          {pageRoutes.map((data, i) => {
+            return (
+              <Menu.Item key={i} icon={data.icon}>
+                <Link to={data.link}>{data.name}</Link>
+              </Menu.Item>
+            );
+          })}
         </Menu>
       </Sider>
       <Layout className="site-layout">

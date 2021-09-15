@@ -1,11 +1,9 @@
 import './App.css';
-import Dashboard from './components/Sidebar';
+import Router from './router';
 
 function App() {
   return (
-    <div className="App">
-      <Dashboard />
-    </div>
+     <Router />
   );
 }
 
