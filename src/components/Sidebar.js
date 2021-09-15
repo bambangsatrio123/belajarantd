@@ -1,12 +1,13 @@
 import { Layout, Menu } from "antd";
 import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Switch, Route } from "react-router-dom";
 import pageRoutes from "./pageRoutes";
 
 const { Header, Content, Footer, Sider } = Layout;
 
 export default function Sidebar() {
+
   const getCollapseIcon = () => {
     if (collapsed) {
       return <MenuUnfoldOutlined onClick={handleOnCollapse} className="trigger" />;
@@ -46,7 +47,11 @@ export default function Sidebar() {
             minHeight: 280,
           }}
         >
-          Content
+          <Switch>
+            {pageRoutes.map((data, i) => {
+              return <Route path={data.path} component={data.component} exact />;
+            })}
+          </Switch>
         </Content>
         <Footer style={{ textAlign: "center" }}>Ant Design ©2018 Created by Ant UED</Footer>
       </Layout>

@@ -1,12 +1,14 @@
 import { DashboardOutlined, BankOutlined, LogoutOutlined } from "@ant-design/icons";
+import Dashboard from "../pages/Dashboard/Dashboard";
 
 const pageRoutes = () => {
   return [
     {
-      path: "/berandas",
-      link: "/berandas",
+      path: "/beranda",
+      link: "/beranda",
       icon: <DashboardOutlined />,
       name: "Beranda",
+      component: Dashboard,
     },
     {
       path: "/transaksibaru",
