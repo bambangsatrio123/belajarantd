@@ -2,6 +2,7 @@ import { DashboardOutlined, BankOutlined, LogoutOutlined } from "@ant-design/ico
 import Dashboard from "../pages/Dashboard/Dashboard";
 import TransactionPage from "../pages/Transaction/TransactionPage";
 import FormTransactionPage from "../pages/Transaction/FormTransactionPage";
+import TransactionContainer from "../pages/Transaction/TransactionStatus/TransactionContainer";
 
 const pageRoutes = () => {
   return [
@@ -28,7 +29,12 @@ const pageRoutes = () => {
     {
       path: "/transaksi-baru/setoran-pinjaman",
       link: "/transaksi-baru/setoran-pinjaman",
-      component:FormTransactionPage,
+      component: FormTransactionPage,
+    },
+    {
+      path: "/beranda/transaksi-sukses",
+      link: "/beranda/transaksi-sukses",
+      component: TransactionContainer,
     },
   ];
 };

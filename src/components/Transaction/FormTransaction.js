@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Input, Card, Select, Form, Button } from "antd";
 import { Row, Col } from "antd";
 import "../../App.css";

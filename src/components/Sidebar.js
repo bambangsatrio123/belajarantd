@@ -4,10 +4,9 @@ import React, { useState } from "react";
 import { Link, Switch, Route } from "react-router-dom";
 import pageRoutes from "./pageRoutes";
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Header, Content, Sider } = Layout;
 
 export default function Sidebar() {
-
   const getCollapseIcon = () => {
     if (collapsed) {
       return <MenuUnfoldOutlined onClick={handleOnCollapse} className="trigger" />;
@@ -39,20 +38,13 @@ export default function Sidebar() {
         <Header className="site-layout-background" style={{ padding: 0 }}>
           <div>{window.innerWidth > 992 && getCollapseIcon()}</div>
         </Header>
-        <Content
-          className="site-layout-background"
-          style={{
-            margin: "24px 16px",
-            padding: 24,
-            minHeight: 280,
-          }}
-        >
+        <div>
           <Switch>
             {pageRoutes.map((data, i) => {
               return <Route path={data.path} component={data.component} exact />;
             })}
           </Switch>
-        </Content>
+        </div>
       </Layout>
     </Layout>
   );
